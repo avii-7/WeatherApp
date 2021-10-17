@@ -3,8 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherApp.View.WeatherPage">
     
-        <!--height auto means max to content-->
-        <!--* means jitni bach gyi-->
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <Grid>

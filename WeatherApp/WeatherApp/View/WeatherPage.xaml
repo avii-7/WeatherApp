@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherApp.View.WeatherPage">
+    
+        <!--height auto means max to content-->
+        <!--* means jitni bach gyi-->
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Grid>
+                <Image Source="bg" Aspect="Fill"/>
+                <StackLayout Padding="30,30,30,40">
+                    <Grid RowSpacing="7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="0">
+                            <Image Source="logo" WidthRequest="50" />
+                            <Label Text="WeatherApp" TextColor="Black" VerticalTextAlignment="Center" FontSize="25" FontAttributes="bold" CharacterSpacing="2"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="Center" >
+                            <Label x:Name="Temp" Text="12" TextColor="Black" FontSize="70" />
+                            <Label Text="°C" TextColor="Black" FontSize="39" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+
+                        <Label Grid.Row="2" x:Name="Location" Text="Jagadhri, Haryana" TextColor="Black" FontSize="16" FontAttributes="Italic" HorizontalTextAlignment="Center"/>
+                        <Label Grid.Row="3" x:Name="Description" Text="Clear" TextColor="Black" FontSize="Medium" HorizontalTextAlignment="Center" FontAttributes="Italic"/>
+
+                    </Grid>
+                </StackLayout>
+            </Grid>
+            <Frame CornerRadius="100" Padding="20,0,20,0" Margin="30,-28,30,0" HasShadow="True">
+                <StackLayout Orientation="Horizontal">
+                <Picker x:Name="SelectCityPicker" Title="Select your city..."  ItemsSource="{Binding Cities}" ItemDisplayBinding="{Binding Name}" 
+                                    TextColor="Black" TitleColor="Gray" SelectedIndexChanged="Picker_SelectedIndexChanged" SelectedIndex="1" Background="white" HorizontalOptions="FillAndExpand"/>
+                    <ImageButton Source="search_icon" WidthRequest="30" BackgroundColor="Transparent" />
+                </StackLayout>
+
+            </Frame>
+            <Grid VerticalOptions="FillAndExpand" Padding="40" BackgroundColor="GhostWhite">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Source="region" Grid.Row="0" Grid.Column="0" WidthRequest="30" VerticalOptions="Center"/>
+                <Label  Text="Observation Time" Grid.Row="0" Grid.Column="1" TextColor="Black" VerticalTextAlignment="Center"  Margin="10,0,0,0" FontSize="15"/>
+                <Label x:Name="O_Time" Text=""  Grid.Row="0" Grid.Column="2" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="15"/>
+
+                <Image Source="location" Grid.Row="1" Grid.Column="0" WidthRequest="30" VerticalOptions="Center"/>
+                <Label Text="Lat and Long" Grid.Row="1" Grid.Column="1" TextColor="Black" VerticalTextAlignment="Center" Margin="10,0,0,0" FontSize="15"/>
+                <Label x:Name="LatAndLong" Text=""  Grid.Row="1" Grid.Column="2" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="15"/>
+
+                <Image Source="wind" Grid.Row="2" Grid.Column="0" WidthRequest="30" VerticalOptions="Center"/>
+                <Label Text="Wind Speed" Grid.Row="2" Grid.Column="1" TextColor="Black" VerticalTextAlignment="Center" Margin="10,0,0,0" FontSize="15"/>
+                <Label x:Name="WindSpeed" Text=""  Grid.Row="2" Grid.Column="2" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="15"/>
+
+                <Image x:Name="IsDay_icon" Source="" Grid.Row="3" Grid.Column="0" WidthRequest="30" VerticalOptions="Center"/>
+                <Label Text="Is Day ?" Grid.Row="3" Grid.Column="1" TextColor="Black" VerticalTextAlignment="Center" Margin="10,0,0,0" FontSize="15"/>
+                <Label x:Name="IsDay" Text=""  Grid.Row="3" Grid.Column="2" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="15"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
